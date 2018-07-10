@@ -21,9 +21,30 @@ router.post('/', function (req, res) {
 });
 
 // read
-router.get('', function (req, res) {
+router.get('/', function (req, res) {
     Agenda.find({}, function (err, eventos) {
         res.render('index', { eventos: eventos });
+    });
+});
+
+
+// update
+router.post('/update', function (req, res) {
+    Agenda.updateOne({ "_id": req.body.id }, 
+    { $set: {
+        ano: req.body.ano,
+        mes: req.body.mes,
+        dia: req.body.dia,
+        evento: req.body.evento
+    }}, function (err, resp) {
+        res.status(200).send();
+    });
+});
+
+// delete
+router.post('/delete', function (req, res) {
+    Agenda.findByIdAndDelete(req.body.id, function (err, eventos) {
+        res.status(200).send();
     });
 });
 

@@ -22,6 +22,7 @@ app.use(bodyParser.json());                                                 // p
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));            // configurando o view engine handlebars
 app.set('view engine', 'handlebars');                                       // configurando o view engine handlebars
 app.use('/', require('./routes/index'));
+app.use('/js', express.static('views/js'));
 
 app.listen(3000, function () {                                              // iniciando a aplicação (servidor) na porta 3000
     console.log('rodando na porta 3000');
