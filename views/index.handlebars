@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-4 mb-4">
+      <form action="/" method="post">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" name="ano" class="form-control" placeholder="Ano">
+          </div>
+          <div class="col">
+            <input type="text" name="mes" class="form-control" placeholder="Mes">
+          </div>
+          <div class="col">
+            <input type="text" name="dia" class="form-control" placeholder="Dia">
+          </div>
+          <div class="col">
+            <input type="text" name="evento" class="form-control" placeholder="Evento">
+          </div>
+          <button class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-12">
+     
+      <table class="table">
+        <thead>  
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Mes</th>
+            <th scope="col">Dia</th>
+            <th scope="col">Evento</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each eventos}}
+            <tr>
+              <th scope="row">{{_id}}</th>
+              <td>{{ano}}</td>
+              <td>{{mes}}</td>
+              <td>{{dia}}</td>
+              <td>{{evento}}</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="5">
+                <div class="alert alert-primary" role="alert">
+                  There is no events to show
+                </div>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+     
+    </div>
+  </div>
+</div>
