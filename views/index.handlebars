@@ -1,56 +1,55 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 mt-4 mb-4">
+  <div class="card">
+    <div class="card-content">
+      <h4 class="left" style="margin:0">Eventos</h4>
+      <a class="btn-floating btn-large waves-effect waves-light btn modal-trigger right" href="#modal1">
+        <i class="material-icons">add</i>
+      </a>
       <form id="form" action="/" method="post" onsubmit="submitForm()">
-        <div class="form-row">
-          <div class="col">
-            <input type="text" name="id" class="form-control" placeholder="Id">
+
+        <div id="modal1" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h4>Evento</h4>
+            <br>
+            <input type="hidden" name="id" class="form-control" placeholder="Id" required>
+            <input type="text" name="ano" class="form-control" placeholder="Ano" required>
+            <input type="text" name="mes" class="form-control" placeholder="Mes" required>
+            <input type="text" name="dia" class="form-control" placeholder="Dia" required>
+            <input type="text" name="evento" class="form-control" placeholder="Evento" required>
           </div>
-          <div class="col">
-            <input type="text" name="ano" class="form-control" placeholder="Ano">
+          <div class="modal-footer">
+            <button type="button" onclick="cancel()" class="modal-close waves-effect btn-flat">cancel</a>
+              <button class="btn">save</button>
           </div>
-          <div class="col">
-            <input type="text" name="mes" class="form-control" placeholder="Mes">
-          </div>
-          <div class="col">
-            <input type="text" name="dia" class="form-control" placeholder="Dia">
-          </div>
-          <div class="col">
-            <input type="text" name="evento" class="form-control" placeholder="Evento">
-          </div>
-          <button class="btn btn-primary">OK</button>
         </div>
       </form>
-    </div>
-    <div class="col-12">
 
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">Ano</th>
-            <th scope="col">Mes</th>
-            <th scope="col">Dia</th>
-            <th scope="col">Evento</th>
-            <th scope="col">#</th>
+            <th>Data</th>
+            <th>Evento</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {{#each eventos}}
           <tr>
-            <th scope="row">{{_id}}</th>
-            <td>{{ano}}</td>
-            <td>{{mes}}</td>
-            <td>{{dia}}</td>
+            <td>{{dia}}/{{mes}}/{{ano}}</td>
             <td>{{evento}}</td>
-            <td>
-              <button onclick="deleteEvento('{{_id}}')">Delete</button>
+            <td class="right-align">
+              <i class="material-icons red-text text-darken-2 cursor-pointer" onclick="deleteEvento('{{_id}}')">
+                delete
+              </i>
+              <i class="material-icons teal-text cursor-pointer" onclick="updateEvento('{{ano}}','{{mes}}','{{dia}}','{{evento}}','{{_id}}')">
+                edit
+              </i>
             </td>
           </tr>
           {{else}}
           <tr>
-            <td colspan="6">
-              <div class="alert alert-primary" role="alert">
+            <td colspan="3">
+              <div class="center-align" role="alert">
                 There is no events to show
               </div>
             </td>

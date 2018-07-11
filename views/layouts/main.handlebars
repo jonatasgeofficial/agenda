@@ -6,18 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sample</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  {{!-- materialize --}}
+  {{!--Import Google Icon Font--}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {{!--Import materialize.css--}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <style>
+    .cursor-pointer {
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body>
-  <nav class="navbar navbar-light bg-light">
-    <span class="navbar-text">
-      This is a list of contacts
-    </span>
+<body class="grey lighten-4">
+  <nav class="row indigo">
+    <div class="nav-wrapper col s12">
+      <a href="#" class="brand-logo">Agenda Online</a>
+    </div>
   </nav>
 
   {{{body}}}
 
+  {{!-- jquery --}}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  {{!-- materialize --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
