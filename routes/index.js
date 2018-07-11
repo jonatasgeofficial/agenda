@@ -1,5 +1,5 @@
-var router = require('express').Router();           // criando as rotas usando Express
-var Agenda = require('./../models/Agenda');         // importando o modelo
+var router = require('express').Router(); // criando as rotas usando Express
+var Agenda = require('./../models/Agenda'); // importando o modelo
 
 // rotas
 
@@ -13,9 +13,9 @@ router.post('/', function (req, res) {
     });
 
     evento.save(function (err, newAgenda) {
-        if (err) 
+        if (err)
             return console.error(err);
-        
+
         res.redirect('/');
     });
 });
@@ -23,20 +23,29 @@ router.post('/', function (req, res) {
 // read
 router.get('/', function (req, res) {
     Agenda.find({}, function (err, eventos) {
-        res.render('index', { eventos: eventos });
+        res.render('index', {
+            eventos: eventos
+        });
+    }).sort({
+        ano: -1,
+        mes: -1,
+        dia: -1
     });
 });
 
 
 // update
 router.post('/update', function (req, res) {
-    Agenda.updateOne({ "_id": req.body.id }, 
-    { $set: {
-        ano: req.body.ano,
-        mes: req.body.mes,
-        dia: req.body.dia,
-        evento: req.body.evento
-    }}, function (err, resp) {
+    Agenda.updateOne({
+        "_id": req.body.id
+    }, {
+        $set: {
+            ano: req.body.ano,
+            mes: req.body.mes,
+            dia: req.body.dia,
+            evento: req.body.evento
+        }
+    }, function (err, resp) {
         res.status(200).send();
     });
 });
@@ -48,4 +57,4 @@ router.post('/delete', function (req, res) {
     });
 });
 
-module.exports = router;                            // exportando rotas
+module.exports = router; // exportando rotas

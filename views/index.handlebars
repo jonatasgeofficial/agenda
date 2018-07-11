@@ -11,11 +11,11 @@
           <div class="modal-content">
             <h4>Evento</h4>
             <br>
-            <input type="hidden" name="id" class="form-control" placeholder="Id" required>
-            <input type="text" name="ano" class="form-control" placeholder="Ano" required>
-            <input type="text" name="mes" class="form-control" placeholder="Mes" required>
-            <input type="text" name="dia" class="form-control" placeholder="Dia" required>
-            <input type="text" name="evento" class="form-control" placeholder="Evento" required>
+            <input type="hidden" name="id" placeholder="Id" required>
+            <input type="text" name="ano" placeholder="Ano" required>
+            <input type="text" name="mes" placeholder="Mes" required>
+            <input type="text" name="dia" placeholder="Dia" required>
+            <input type="text" name="evento" placeholder="Evento" required>
           </div>
           <div class="modal-footer">
             <button type="button" onclick="cancel()" class="modal-close waves-effect btn-flat">cancel</a>
@@ -38,7 +38,7 @@
             <td>{{dia}}/{{mes}}/{{ano}}</td>
             <td>{{evento}}</td>
             <td class="right-align">
-              <i class="material-icons red-text text-darken-2 cursor-pointer" onclick="deleteEvento('{{_id}}')">
+              <i class="material-icons teal-text cursor-pointer" onclick="deleteEvento('{{_id}}')">
                 delete
               </i>
               <i class="material-icons teal-text cursor-pointer" onclick="updateEvento('{{ano}}','{{mes}}','{{dia}}','{{evento}}','{{_id}}')">
@@ -50,7 +50,7 @@
           <tr>
             <td colspan="3">
               <div class="center-align" role="alert">
-                There is no events to show
+                Sem eventos
               </div>
             </td>
           </tr>
